@@ -3,14 +3,33 @@ body {
     font-family: sans-serif;
 }
 
+form {
+    margin-bottom: 14px;
+}
+
 .container {
     display: flex;
+    justify-content: space-between;
+}
+
+.container--app {
     flex-wrap: wrap;
+    flex-direction: column;
     width: 350px;
-    justify-content: space-around;
+}
+
+.container--dial {
+    padding: 25px;
+    flex-wrap: wrap;
     background-color: #0097A9;
     border-radius: 10px;
-    padding: 25px;
+    justify-content: space-around;
+}
+
+.output {
+    box-shadow: 0 1px 3px rgba(0,0,0,.14);
+    margin-bottom: 14px;
+    padding: 12px;
 }
 
 .button {
@@ -34,6 +53,11 @@ body {
     box-shadow: inset 8px 6px #795f2e; 
 }
 
+.button--disabled {
+    background-color: #d8bf90;
+    cursor: default;
+}
+
 .button__title {
     display: block;
     font-weight: 700;
@@ -43,10 +67,9 @@ body {
     font-size: 10px;
 }
 
-input {
-    width: 100%;
-    margin: 0 20px 20px;
+input[type="text"] {
     padding: 3px 0 3px 15px;
+    width: 100%;
     height: 38px;
     box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
     border: 1px solid #e9eef2;
