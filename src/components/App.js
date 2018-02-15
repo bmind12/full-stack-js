@@ -1,11 +1,28 @@
 import React, { PureComponent } from 'react';
+import { PHONE_BUTTONS } from '../const/phone';
 import Button from './Button';
 
 class App extends PureComponent {
-    renderPhoneButtons = () => {
-        const phoneButtons = [[1], [2, 'abc'], [3, 'def'], [4, 'ghi'], [5, 'jkl'], [6, 'mno'], [7, 'pqrs'], [8, 'tuv'], [9, 'wxyz'], ['*'], [0], ['#']];
+    state = {
+        input: ''
+    }
 
-        return phoneButtons.map(button => <Button title={button[0]} subtitle={button[1]} />);
+    updateInput = (value) => {
+        this.setState({
+            input: this.state.input + value
+        });
+    }
+
+    renderPhoneButtons = () => {
+        return PHONE_BUTTONS.map(button => 
+            <Button
+                disabled={button.disabled}
+                subtitle={button.subtitle}
+                title={button.title}
+                updateInput={this.updateInput}
+                value={button.value}
+            />
+        );
     }
 
     render() {
