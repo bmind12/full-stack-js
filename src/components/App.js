@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuid } from 'uuid';
 import { connect } from 'react-redux';
 import { updateInput } from '../AC/input';
 import { PHONE_BUTTONS } from '../const/phone';
@@ -9,6 +10,7 @@ const App = props => {
         return PHONE_BUTTONS.map(button =>
             <Button
                 disabled={button.disabled}
+                key={uuid()}
                 subtitle={button.subtitle}
                 title={button.title}
                 updateInput={props.updateInput}
