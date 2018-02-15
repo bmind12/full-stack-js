@@ -1,38 +1,36 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { updateInput } from '../AC/input';
 import { PHONE_BUTTONS } from '../const/phone';
 import Button from './Button';
 
-class App extends PureComponent {
-    state = {
-        input: ''
-    }
-
-    updateInput = (value) => {
-        this.setState({
-            input: this.state.input + value
-        });
-    }
-
-    renderPhoneButtons = () => {
-        return PHONE_BUTTONS.map(button => 
+const App = props => {
+    const renderPhoneButtons = () => {
+        return PHONE_BUTTONS.map(button =>
             <Button
                 disabled={button.disabled}
                 subtitle={button.subtitle}
                 title={button.title}
-                updateInput={this.updateInput}
+                updateInput={props.updateInput}
                 value={button.value}
             />
         );
-    }
+    };
 
-    render() {
-        return (
-            <div className="container">
-                <input type="text"/>
-                {this.renderPhoneButtons()}
+    return (
+        <div className="container container--app">
+            <form className="container">
+                <input type="text" value={props.input} />
+                <input type="submit" value="Convert" />
+            </form>
+            <div className="output">
+                Output comes here
             </div>
-        );
-    }
-}
+            <div className="container container--dial">
+                {renderPhoneButtons()}
+            </div>
+        </div>
+    );
+};
 
-export default App;
+export default connect(({ input }) => ({ input }), { updateInput })(App);
