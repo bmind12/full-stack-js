@@ -4,9 +4,9 @@ const Button = props => {
     const { title, subtitle } = props;
 
     return (
-        <div>
-            <span>{title}</span>
-            <span>{subtitle}</span>
+        <div className="button">
+            <span className="button__title">{title}</span>
+            <span className="button__subtitle">{subtitle}</span>
         </div>
     )
 }
