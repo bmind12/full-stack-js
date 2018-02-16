@@ -25,8 +25,9 @@ module.exports = function(app) {
 
             const convertion = arraysToCombine.reduce(crossProduct).sort();
             const words = convertion.filter(word => WORD_LIST.includes(word));
+            const result = words.join(', ') || 'No words matched';
 
-            res.end(words.join(', '));
+            res.end(result);
         } catch(e) {
             res.end('Some error occured');
         }
