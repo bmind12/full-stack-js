@@ -9,6 +9,8 @@ const CONVERSIONS = {
     '9': ['w', 'x', 'y', 'z']
 };
 
+const WORD_LIST = ['bear', 'cat', 'dog', 'fox', 'owl', 'wolf'];
+
 const crossProduct = (a, b) => b.reduce((arr, b) => arr.concat(a.map(a => a + b)), []);
 
 module.exports = function(app) {
@@ -22,6 +24,7 @@ module.exports = function(app) {
             });
 
             const convertion = arraysToCombine.reduce(crossProduct).sort();
+            const words = convertion.filter(word => WORD_LIST.includes(word));
 
             res.end(words.join(', '));
         } catch(e) {
