@@ -2,7 +2,7 @@ import React from 'react';
 import { v4 as uuid } from 'uuid';
 import { connect } from 'react-redux';
 import { convertInput } from '../AC/convertion';
-import { updateInput } from '../AC/input';
+import { clearInput, updateInput } from '../AC/input';
 import { PHONE_BUTTONS } from '../const/phone';
 import Button from './Button';
 
@@ -26,6 +26,7 @@ const App = props => {
                 <input type="text" value={props.input} />
                 <input onSubmit={props.queryConvertion} type="submit" value="Convert" />
             </form>
+            <button onClick={props.clearInput}>Clear</button>
             <div className="container container--dial">
                 {renderPhoneButtons()}
             </div>
@@ -36,4 +37,8 @@ const App = props => {
     );
 };
 
-export default connect(({ input }) => ({ input }), { convertInput, updateInput })(App);
+export default connect(({ input }) => ({ input }), {
+    clearInput,
+    convertInput,
+    updateInput
+})(App);

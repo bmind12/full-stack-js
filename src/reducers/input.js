@@ -1,10 +1,15 @@
-import { UPDATE_INPUT } from '../AC/input';
-import { CONVERT_INPUT } from '../AC/input';
+import { CLEAR_INPUT, UPDATE_INPUT } from '../AC/input';
 
-export default (input = '', action) => {
+const inputDefault = '';
+
+export default (input = inputDefault, action) => {
     const { type, payload } = action;
 
 	switch(type) {
+        case CLEAR_INPUT: {
+            return inputDefault;
+        }
+
 		case UPDATE_INPUT: {
 			return input + payload.value;
 		}
