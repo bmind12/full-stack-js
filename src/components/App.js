@@ -25,7 +25,7 @@ const App = props => {
             <input placeholder="Use dial to enter a number" type="text" value={props.input} />
             <div className="container container--buttons">
                 <button onClick={props.clearInput}>Clear</button>
-                <button onClick={props.queryConvertion}>Convert</button>
+                <button onClick={props.convertInput}>Convert</button>
             </div>
             <div className="container container--dial">
                 {renderPhoneButtons()}
