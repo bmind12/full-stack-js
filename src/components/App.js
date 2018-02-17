@@ -1,6 +1,7 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 import { connect } from 'react-redux';
+import { convertInput } from '../AC/convertion';
 import { updateInput } from '../AC/input';
 import { PHONE_BUTTONS } from '../const/phone';
 import Button from './Button';
@@ -23,16 +24,16 @@ const App = props => {
         <div className="container container--app">
             <form className="container">
                 <input type="text" value={props.input} />
-                <input type="submit" value="Convert" />
+                <input onSubmit={props.queryConvertion} type="submit" value="Convert" />
             </form>
-            <div className="output">
-                Output comes here
-            </div>
             <div className="container container--dial">
                 {renderPhoneButtons()}
+            </div>
+            <div className="output">
+                Output comes here
             </div>
         </div>
     );
 };
 
-export default connect(({ input }) => ({ input }), { updateInput })(App);
+export default connect(({ input }) => ({ input }), { convertInput, updateInput })(App);

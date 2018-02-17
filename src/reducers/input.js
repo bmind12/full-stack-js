@@ -1,4 +1,5 @@
-import { UPDATE_INPUT } from '../const/redux';
+import { UPDATE_INPUT } from '../AC/input';
+import { CONVERT_INPUT } from '../AC/input';
 
 export default (input = '', action) => {
     const { type, payload } = action;

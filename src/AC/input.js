@@ -1,4 +1,4 @@
-import { UPDATE_INPUT } from '../const/redux';
+export const UPDATE_INPUT = 'UPDATE_INPUT';
 
 export const updateInput = (value) => {
 	return {
