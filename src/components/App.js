@@ -7,6 +7,10 @@ import { PHONE_BUTTONS } from '../const/phone';
 import Button from './Button';
 
 const App = props => {
+    const handleConvertInput = () => {
+        props.convertInput(props.input);
+    }
+
     const renderPhoneButtons = () => {
         return PHONE_BUTTONS.map(button =>
             <Button
@@ -25,7 +29,7 @@ const App = props => {
             <input placeholder="Use dial to enter a number" type="text" value={props.input} />
             <div className="container container--buttons">
                 <button onClick={props.clearInput}>Clear</button>
-                <button onClick={props.convertInput}>Convert</button>
+                <button onClick={handleConvertInput}>Convert</button>
             </div>
             <div className="container container--dial">
                 {renderPhoneButtons()}
