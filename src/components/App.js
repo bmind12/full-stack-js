@@ -24,20 +24,24 @@ const App = props => {
         <div className="container container--app">
             <input type="text" value={props.input} />
             <div className="container">
-                <button onClucx={props.queryConvertion}>Convert</button>
+                <button onClick={props.queryConvertion}>Convert</button>
                 <button onClick={props.clearInput}>Clear</button>
             </div>
             <div className="container container--dial">
                 {renderPhoneButtons()}
             </div>
-            <div className="output">
-                Output comes here
-            </div>
+            <div className="output">{props.convertion}</div>
         </div>
     );
 };
 
-export default connect(({ input }) => ({ input }), {
+export default connect((state) => {
+    const { input, convertion } = state;
+    return {
+        convertion,
+        input
+    }
+}, {
     clearInput,
     convertInput,
     updateInput
