@@ -22,10 +22,10 @@ const App = props => {
 
     return (
         <div className="container container--app">
-            <input type="text" value={props.input} />
-            <div className="container">
-                <button onClick={props.queryConvertion}>Convert</button>
+            <input placeholder="Use dial to enter a number" type="text" value={props.input} />
+            <div className="container container--buttons">
                 <button onClick={props.clearInput}>Clear</button>
+                <button onClick={props.queryConvertion}>Convert</button>
             </div>
             <div className="container container--dial">
                 {renderPhoneButtons()}
