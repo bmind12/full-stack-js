@@ -9,14 +9,20 @@ const CONVERSIONS = {
     '9': ['w', 'x', 'y', 'z']
 };
 
-const WORD_LIST = ['bear', 'cat', 'dog', 'fox', 'owl', 'wolf'];
+const ANIMALS = ['ant', 'bear', 'bird', 'cat', 'chicken', 'cow', 'dog', 'elephant',
+    'fish', 'fox', 'horse', 'kangaroo', 'lion', 'monkey', 'penguin', 'pig', 'rabbit',
+    'sheep', 'tiger', 'whale', 'wolf'];
 
 const crossProduct = (a, b) => b.reduce((arr, b) => arr.concat(a.map(a => a + b)), []);
 
 module.exports = function(app) {
     app.get('/convertor', (req, res) => {
         try {
-            const digits = req.query.value.split('');
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "X-Requested-With");
+
+            const value = req.query.value;
+            const digits = value.split('');
             const arraysToCombine = [];
 
             digits.forEach(digit => {
@@ -24,8 +30,8 @@ module.exports = function(app) {
             });
 
             const convertion = arraysToCombine.reduce(crossProduct).sort();
-            const words = convertion.filter(word => WORD_LIST.includes(word));
-            const result = words.join(', ') || 'No words matched';
+            const words = convertion.filter(word => ANIMALS.includes(word));
+            const result = words.join(', ') || `No animals matched value of ${value}`;
 
             res.end(result);
         } catch(e) {
