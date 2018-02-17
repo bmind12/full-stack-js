@@ -1,12 +1,17 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 import { connect } from 'react-redux';
-import { convertInput } from '../AC/convertion';
+import { convertInput, resetConvertion } from '../AC/convertion';
 import { clearInput, updateInput } from '../AC/input';
 import { PHONE_BUTTONS } from '../const/phone';
 import Button from './Button';
 
 const App = props => {
+    const handleClearInput = () => {
+        props.clearInput();
+        props.resetConvertion();
+    }
+
     const handleConvertInput = () => {
         props.convertInput(props.input);
     }
@@ -28,7 +33,7 @@ const App = props => {
         <div className="container container--app">
             <input placeholder="Use dial to enter a number" type="text" value={props.input} />
             <div className="container container--buttons">
-                <button onClick={props.clearInput}>Clear</button>
+                <button onClick={handleClearInput}>Clear</button>
                 <button onClick={handleConvertInput}>Convert</button>
             </div>
             <div className="container container--dial">
@@ -48,5 +53,6 @@ export default connect((state) => {
 }, {
     clearInput,
     convertInput,
-    updateInput
+    updateInput,
+    resetConvertion
 })(App);
