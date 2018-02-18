@@ -24,7 +24,7 @@ cd server/
 yarn install
 ```
 
-Run the server being from `/server` directory:
+Run the server from `/server` directory:
 ```
 node server.js
 ```
