@@ -12,7 +12,9 @@ The frontend allows the user to enter a number, query the backend for the corres
 You may use both `npm` or `yarn` to set it up and run. Please follow instructions for `yarn`. Tested with `Node 9.5.0`.
 
 Clone repository with:
-`git clone https://github.com/bmind12/full-stack-js.git`
+```
+git clone https://github.com/bmind12/full-stack-js.git
+```
 
 Go to repository and install node dependencies for client and for server:
 ```
