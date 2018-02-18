@@ -8,8 +8,7 @@ export const CONVERT_RESET = 'CONVERT_RESET';
 export const convertInput = (value) => {
     return (dispatch) => {
         dispatch({
-            type: CONVERT_INPUT,
-            value
+            type: CONVERT_INPUT
         })
 
         const api = 'http://localhost:8000/convertor';

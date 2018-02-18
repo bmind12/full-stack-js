@@ -14,9 +14,9 @@ const Button = props => {
     }
 
     return (
-        <div className={`button ${disabled && ' button--disabled'}`} onClick={handleClick}>
-            <span className="button__title">{title}</span>
-            <span className="button__subtitle">{subtitle}</span>
+        <div className={`dial-button ${disabled && ' dial-button--disabled'}`} onClick={handleClick}>
+            <span className="dial-button__title">{title}</span>
+            <span className="dial-button__subtitle">{subtitle}</span>
         </div>
     )
 }

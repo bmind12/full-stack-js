@@ -5,9 +5,9 @@ import {
     CONVERT_RESET
 } from '../AC/convertion';
 
-const defaultConvertion = 'Please enter a number, which represents an animal and press convert to see output.';
+const convertionDefault = 'Please enter a number, which represents an animal and press convert to see output.';
 
-export default (convertion = defaultConvertion, action) => {
+export default (convertion = convertionDefault, action) => {
     const { type, payload } = action;
 
     switch(type) {
@@ -24,7 +24,7 @@ export default (convertion = defaultConvertion, action) => {
         }
 
         case CONVERT_RESET: {
-            return defaultConvertion;
+            return convertionDefault;
         }
 
 		default: {

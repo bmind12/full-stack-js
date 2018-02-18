@@ -7,13 +7,22 @@ import { PHONE_BUTTONS } from '../const/phone';
 import Button from './Button';
 
 const App = props => {
+    const {
+        clearInput,
+        convertInput,
+        convertion,
+        input,
+        updateInput,
+        resetConvertion
+    } = props;
+
     const handleClearInput = () => {
-        props.clearInput();
-        props.resetConvertion();
+        clearInput();
+        resetConvertion();
     }
 
     const handleConvertInput = () => {
-        props.convertInput(props.input);
+        convertInput(input);
     }
 
     const renderPhoneButtons = () => {
@@ -23,7 +32,7 @@ const App = props => {
                 key={uuid()}
                 subtitle={button.subtitle}
                 title={button.title}
-                updateInput={props.updateInput}
+                updateInput={updateInput}
                 value={button.value}
             />
         );
@@ -31,26 +40,23 @@ const App = props => {
 
     return (
         <div className="container container--app">
-            <input placeholder="Use dial to enter a number" type="text" value={props.input} />
+            <input className="input" placeholder="Use dial to enter a number" type="text" value={input} />
             <div className="container container--buttons">
-                <button onClick={handleClearInput}>Clear</button>
-                <button onClick={handleConvertInput}>Convert</button>
+                <button className="button" onClick={handleClearInput}>Clear</button>
+                <button className="button" onClick={handleConvertInput}>Convert</button>
             </div>
             <div className="container container--dial">
                 {renderPhoneButtons()}
             </div>
-            <div className="output">{props.convertion}</div>
+            <div className="output">{convertion}</div>
         </div>
     );
 };
 
-export default connect((state) => {
-    const { input, convertion } = state;
-    return {
-        convertion,
-        input
-    }
-}, {
+export default connect(({ input, convertion }) => ({
+    convertion,
+    input
+}), {
     clearInput,
     convertInput,
     updateInput,

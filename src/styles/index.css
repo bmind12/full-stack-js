@@ -2,10 +2,6 @@ body {
     margin: 15px;
     font-family: sans-serif;
 }
-/* TODO: */
-form {
-    margin-bottom: 14px;
-}
 
 .container {
     display: flex;
@@ -15,16 +11,16 @@ form {
 .container--app {
     flex-wrap: wrap;
     flex-direction: column;
-    width: 350px;
     justify-content: space-between;
+    width: 350px;
 }
 
 .container--dial {
-    padding: 25px;
     flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 25px;
     background-color: #0097A9;
     border-radius: 4px;
-    justify-content: space-around;
 }
 
 .container--buttons {
@@ -32,72 +28,73 @@ form {
 }
 
 .output {
-    box-shadow: 0 1px 3px rgba(0,0,0,.14);
-    margin-bottom: 14px;
     padding: 12px;
+    margin-bottom: 14px;
+    text-align: center;
     font-size: 14px;
     line-height: 26px;
     color: #57626c;
-    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,.14);
 }
 
-.button {
+.dial-button {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 90px;
     height: 50px;
     margin: 5px 0;
+    text-align: center;
+    color: #fff;
     background-color: #EB9D08;
     border: 1px solid #126D7F;
     border-radius: 50%;
-    color: #fff;
-    cursor: pointer;
-    text-align: center;
     box-shadow: inset 8px 6px #f5dcae;
     user-select: none;
+    cursor: pointer;
 }
 
-.button:active {
+.dial-button:active {
     box-shadow: inset 8px 6px #795f2e;
 }
 
-.button--disabled {
+.dial-button--disabled {
     background-color: #d8bf90;
     cursor: default;
 }
 
-.button__title {
+.dial-button__title {
     display: block;
     font-weight: 700;
 }
 
-.button__subtitle {
+.dial-button__subtitle {
     font-size: 10px;
 }
 
-input[type="text"] {
-    padding: 3px 15px;
+.input {
+    width: auto;
     height: 38px;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
-    border: 1px solid #e9eef2;
-    border-radius: 3px;
+    padding: 3px 15px;
     margin-bottom: 14px;
+    border: 1px solid #e9eef2;
     text-align: center;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
 }
 
-button {
+.button {
     min-width: 100px;
-    color: #57626c;
-    border: none;
-    border-radius: 4px;
     padding: 10px;
+    border: none;
+    color: #57626c;
     background-color: transparent;
+    border-radius: 4px;
     outline: none;
     cursor: pointer;
 }
 
-button:active,
-button:hover {
+.button:active,
+.button:hover {
     background-color: rgba(0,0,0,.04);
 }
