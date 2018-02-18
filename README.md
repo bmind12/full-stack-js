@@ -24,8 +24,10 @@ cd server/
 yarn install
 ```
 
-Run the server being in `/server` directory:
-`node server.js`
+Run the server being from `/server` directory:
+```
+node server.js
+```
 
 Now `Node` server is running, open another terminal, come back to `root` directory and run the client:
 ```
