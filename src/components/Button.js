@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 const Button = props => {
     const {
@@ -19,6 +20,14 @@ const Button = props => {
             <span className="dial-button__subtitle">{subtitle}</span>
         </div>
     )
+}
+
+Button.propTypes = {
+    disabled: propTypes.bool.isRequired,
+    subtitle: propTypes.string,
+    title: propTypes.string.isRequired,
+    updateInput: propTypes.func.isRequired,
+    value: propTypes.oneOfType([propTypes.string, propTypes.number])
 }
 
 export default Button;

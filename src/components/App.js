@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import { v4 as uuid } from 'uuid';
 import { connect } from 'react-redux';
 import { convertInput, resetConvertion } from '../AC/convertion';
@@ -52,6 +53,15 @@ const App = props => {
         </div>
     );
 };
+
+App.propTypes = {
+    clearInput: propTypes.func.isRequired,
+    convertInput: propTypes.func.isRequired,
+    convertion: propTypes.string.isRequired,
+    input: propTypes.string.isRequired,
+    updateInput: propTypes.func.isRequired,
+    resetConvertion: propTypes.func.isRequired
+}
 
 export default connect(({ input, convertion }) => ({
     convertion,
